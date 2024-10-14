@@ -1,0 +1,25 @@
+# Generated from lib/rbs_actionmailer/generator.rb with RBS::Inline
+
+module RbsActionmailer
+  class Generator
+    attr_reader klass: singleton(ActionMailer::Base)
+
+    attr_reader klass_name: String
+
+    # @rbs klass: singleton(ActionMailer::Base)
+    def initialize: (singleton(ActionMailer::Base) klass) -> void
+
+    def generate: () -> String
+
+    private
+
+    # @rbs rbs: String
+    def format: (String rbs) -> String
+
+    def header: () -> String
+
+    def methods: () -> String
+
+    def footer: () -> String
+  end
+end

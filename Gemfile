@@ -11,5 +11,7 @@ gem "rubocop", "~> 1.21"
 
 group :development do
   gem "rbs-inline", require: false
+  gem "rspec", require: false
+  gem "rspec-daemon", require: false
   gem "steep", require: false
 end

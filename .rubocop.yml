@@ -14,5 +14,8 @@ Style/StringLiteralsInInterpolation:
 Layout/LeadingCommentSpace:
   Enabled: false
 
+Style/AccessorGrouping:
+  Enabled: false
+
 Style/CommentedKeyword:
   Enabled: false

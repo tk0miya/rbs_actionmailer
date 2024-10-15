@@ -1,7 +1,7 @@
 # Generated from lib/generators/rbs_actionmailer/install_generator.rb with RBS::Inline
 
 module RbsActionmailer
-  class Installgenerator < Rails::Generators::Base
+  class InstallGenerator < Rails::Generators::Base
     def create_raketask: () -> untyped
   end
 end

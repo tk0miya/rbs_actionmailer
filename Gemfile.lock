@@ -7,6 +7,7 @@ PATH
       railties
       rake
       rbs
+      rbs-inline
 
 GEM
   remote: https://rubygems.org/
@@ -215,7 +216,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  rbs-inline
   rbs_actionmailer!
   rspec
   rspec-daemon

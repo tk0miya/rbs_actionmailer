@@ -7,6 +7,7 @@ module RbsActionmailer
   class Generator
     attr_reader :klass #: singleton(ActionMailer::Base)
     attr_reader :klass_name #: String
+    attr_reader :decl #: RBS::Inline::AST::Declarations::ClassDecl | RBS::Inline::AST::Declarations::ModuleDecl | nil
 
     # @rbs klass: singleton(ActionMailer::Base)
     def initialize(klass) #: void
@@ -15,6 +16,8 @@ module RbsActionmailer
     end
 
     def generate #: String
+      @decl = Parser.parse(klass_name)
+
       format <<~RBS
         #{header}
         #{methods}
@@ -53,12 +56,31 @@ module RbsActionmailer
     end
 
     def methods #: String
-      klass.action_methods.map do |method_name|
+      klass.action_methods.sort.map do |method_name|
+        arg_types = arguments_for(method_name)
+        singleton_method_types = arg_types.map { |args| "(#{args}) -> ActionMailer::MessageDelivery" }.join(" | ")
+        instance_method_types = arg_types.map { |args| "(#{args}) -> Mail::Message" }.join(" | ")
         <<~RBS
-          def self.#{method_name}: (*untyped) -> ActionMailer::MessageDelivery
-          def #{method_name}: (*untyped) -> Mail::Message
+          def self.#{method_name}: #{singleton_method_types}
+          def #{method_name}: #{instance_method_types}
         RBS
       end.join("\n")
+    end
+
+    # @rbs method_name: String
+    def arguments_for(method_name) #: Array[String]
+      return ["*untyped"] unless decl
+
+      member = decl.members.find do |m|
+        case m
+        when RBS::Inline::AST::Members::RubyDef
+          m.node.name.to_s == method_name
+        end
+      end #: RBS::Inline::AST::Members::RubyDef?
+
+      return ["*untyped"] unless member
+
+      member.method_overloads.map { |overload| overload.method_type.type.param_to_s }
     end
 
     def footer #: String

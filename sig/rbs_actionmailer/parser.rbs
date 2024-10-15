@@ -1,0 +1,23 @@
+# Generated from lib/rbs_actionmailer/parser.rb with RBS::Inline
+
+module RbsActionmailer
+  class Parser
+    type t = RBS::Inline::AST::Declarations::ClassDecl | RBS::Inline::AST::Declarations::ModuleDecl
+
+    # @rbs klass_name: String
+    def self.parse: (String klass_name) -> t?
+
+    # @rbs klass_name: String
+    def parse: (String klass_name) -> t?
+
+    private
+
+    # @rbs klass_name: String
+    def load: (String klass_name) -> Array[RBS::Inline::AST::Declarations::t]?
+
+    # @rbs decls: Array[RBS::Inline::AST::Declarations::t | RBS::Inline::AST::Members::t]
+    # @rbs name: Symbol
+    # @rbs *remains: Symbol
+    def dig: (Array[RBS::Inline::AST::Declarations::t | RBS::Inline::AST::Members::t] decls, Symbol name, *Symbol remains) -> t?
+  end
+end

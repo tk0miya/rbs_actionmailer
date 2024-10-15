@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RbsActionmailer
-  class Installgenerator < Rails::Generators::Base
+  class InstallGenerator < Rails::Generators::Base
     def create_raketask
       create_file "lib/tasks/rbs_actionmailer.rake", <<~RUBY
         # frozen_string_literal: true

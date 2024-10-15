@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "rbs_actionmailer/generator"
+require_relative "rbs_actionmailer/parser"
 require_relative "rbs_actionmailer/version"
 
 module RbsActionmailer

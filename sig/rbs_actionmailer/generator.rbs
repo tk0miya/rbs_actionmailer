@@ -6,6 +6,8 @@ module RbsActionmailer
 
     attr_reader klass_name: String
 
+    attr_reader decl: RBS::Inline::AST::Declarations::ClassDecl | RBS::Inline::AST::Declarations::ModuleDecl | nil
+
     # @rbs klass: singleton(ActionMailer::Base)
     def initialize: (singleton(ActionMailer::Base) klass) -> void
 
@@ -19,6 +21,9 @@ module RbsActionmailer
     def header: () -> String
 
     def methods: () -> String
+
+    # @rbs method_name: String
+    def arguments_for: (String method_name) -> Array[String]
 
     def footer: () -> String
   end

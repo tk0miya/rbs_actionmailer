@@ -23,6 +23,26 @@ Run `rbs:actionmailer:setup` task:
 Then rbs_actionmailer will scan your source code and generate RBS files into
 `sig/actionmailer` directory.
 
+rbs_actionmailer supports [RBS::Inline](https://github.com/soutaro/rbs-inline) style type annotations.
+If your mailer class has type annotation comments, they will be applied to the generated RBS:
+
+```ruby
+class MyMailer < ActionMailer::Base
+  # @rbs user: User
+  def welcome(user)
+  end
+end
+```
+
+rbs_actionmailer will generate the following RBS:
+
+```ruby
+class MyMailer < ActionMailer::Base
+  def self.welcome: (User user) -> ActionMailer::MessageDelivery
+  def welcome: (User user) -> Mail::Message
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also

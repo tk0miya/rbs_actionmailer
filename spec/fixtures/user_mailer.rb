@@ -8,7 +8,17 @@ module Mod
       mail to: "user@example.com", subject: "Welcome to our site!"
     end
 
-    # @rbs user: untyped
+    def greeting(user)
+      mail to: user.email, subject: "Hello!"
+    end
+
+    #: (User user, age: Integer) -> Mail::Message
+    #: (User user, address: String) -> Mail::Message
+    def event(user, age: nil, address: nil) # rubocop:disable Lint/UnusedMethodArgument
+      mail to: user.email, subject: "Hello!"
+    end
+
+    # @rbs user: User
     def goodbye(user)
       mail to: user.email, subject: "Good bye!"
     end

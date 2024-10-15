@@ -2,6 +2,7 @@
 
 require "rbs_actionmailer"
 require "action_mailer"
+require_relative "../fixtures/user_mailer"
 
 RSpec.describe RbsActionmailer::Generator do
   describe "#generate" do
@@ -11,16 +12,25 @@ RSpec.describe RbsActionmailer::Generator do
       stub_const("UserMailer", klass)
     end
 
-    let(:klass) do
-      Class.new(ActionMailer::Base) do
-        def welcome; end
-      end
-    end
+    let(:klass) { Mod::UserMailer }
     let(:expected) do
       <<~RBS
-        class UserMailer < ::ActionMailer::Base
-          def self.welcome: (*untyped) -> ActionMailer::MessageDelivery
-          def welcome: (*untyped) -> Mail::Message
+        module Mod
+          class UserMailer < ::ActionMailer::Base
+            def self.event: (User user, age: Integer) -> ActionMailer::MessageDelivery
+                          | (User user, address: String) -> ActionMailer::MessageDelivery
+            def event: (User user, age: Integer) -> Mail::Message
+                     | (User user, address: String) -> Mail::Message
+
+            def self.goodbye: (User user) -> ActionMailer::MessageDelivery
+            def goodbye: (User user) -> Mail::Message
+
+            def self.greeting: (untyped user) -> ActionMailer::MessageDelivery
+            def greeting: (untyped user) -> Mail::Message
+
+            def self.welcome: () -> ActionMailer::MessageDelivery
+            def welcome: () -> Mail::Message
+          end
         end
       RBS
     end

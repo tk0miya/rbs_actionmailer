@@ -31,6 +31,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "actionmailer"
   spec.add_dependency "activesupport"
+  spec.add_dependency "railties"
+  spec.add_dependency "rake"
   spec.add_dependency "rbs"
 
   # For more information and examples about making a new gem, check out our

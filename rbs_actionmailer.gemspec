@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "railties"
   spec.add_dependency "rake"
   spec.add_dependency "rbs"
-  spec.add_dependency "rbs-inline"
+  spec.add_dependency "rbs-inline", ">= 0.11.0"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

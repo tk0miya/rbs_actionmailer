@@ -80,7 +80,8 @@ module RbsActionmailer
 
       return ["*untyped"] unless member
 
-      member.method_overloads.map { |overload| overload.method_type.type.param_to_s }
+      untyped = RBS::Types::Bases::Any.new(location: nil)
+      member.method_overloads(untyped).map { |overload| overload.method_type.type.param_to_s }
     end
 
     def footer #: String

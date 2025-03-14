@@ -6,7 +6,12 @@
     "rbs-helper.rbs-inline-signature-directory": "sig/",
     "cSpell.words": [
         "actionmailer",
+        "bindir",
         "codebases",
-        "rubygems"
+        "KOMIYA",
+        "popen",
+        "readlines",
+        "rubygems",
+        "Takeshi"
     ]
 }

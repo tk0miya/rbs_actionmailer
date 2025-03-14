@@ -31,7 +31,7 @@ module RbsActionmailer
     def format(rbs) #: String
       parsed = RBS::Parser.parse_signature(rbs)
       StringIO.new.tap do |out|
-        RBS::Writer.new(out: out).write(parsed[1] + parsed[2])
+        RBS::Writer.new(out:).write(parsed[1] + parsed[2])
       end.string
     end
 

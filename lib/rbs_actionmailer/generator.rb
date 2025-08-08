@@ -58,11 +58,9 @@ module RbsActionmailer
     def methods #: String
       klass.action_methods.sort.map do |method_name|
         arg_types = arguments_for(method_name)
-        singleton_method_types = arg_types.map { |args| "(#{args}) -> ActionMailer::MessageDelivery" }.join(" | ")
-        instance_method_types = arg_types.map { |args| "(#{args}) -> Mail::Message" }.join(" | ")
+        method_types = arg_types.map { |args| "(#{args}) -> ActionMailer::MessageDelivery" }.join(" | ")
         <<~RBS
-          def self.#{method_name}: #{singleton_method_types}
-          def #{method_name}: #{instance_method_types}
+          def self.#{method_name}: #{method_types}
         RBS
       end.join("\n")
     end

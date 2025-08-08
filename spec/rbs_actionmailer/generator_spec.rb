@@ -19,17 +19,12 @@ RSpec.describe RbsActionmailer::Generator do
           class UserMailer < ::ActionMailer::Base
             def self.event: (User user, age: Integer) -> ActionMailer::MessageDelivery
                           | (User user, address: String) -> ActionMailer::MessageDelivery
-            def event: (User user, age: Integer) -> Mail::Message
-                     | (User user, address: String) -> Mail::Message
 
             def self.goodbye: (User user) -> ActionMailer::MessageDelivery
-            def goodbye: (User user) -> Mail::Message
 
             def self.greeting: (untyped user) -> ActionMailer::MessageDelivery
-            def greeting: (untyped user) -> Mail::Message
 
             def self.welcome: () -> ActionMailer::MessageDelivery
-            def welcome: () -> Mail::Message
           end
         end
       RBS

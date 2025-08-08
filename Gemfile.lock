@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rbs_actionmailer (1.1.0)
+    rbs_actionmailer (1.2.0)
       actionmailer
       activesupport
       railties

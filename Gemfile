@@ -5,7 +5,7 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in rbs_actionmailer.gemspec
 gemspec
 
-gem "rubocop", "~> 1.82"
+gem "rubocop", "~> 1.84"
 
 group :development do
   gem "rspec", require: false

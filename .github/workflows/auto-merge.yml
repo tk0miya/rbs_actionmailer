@@ -3,8 +3,7 @@ on:
   pull_request:
     types: [labeled]
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   auto-merge:

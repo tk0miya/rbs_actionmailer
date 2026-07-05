@@ -7,6 +7,7 @@ gemspec
 
 gem "rubocop", "~> 1.88"
 gem "rubocop-numbered-params"
+gem "rubocop-rake"
 gem "rubocop-rbs_inline"
 
 group :development do

@@ -6,6 +6,7 @@ source "https://rubygems.org", cooldown: 7
 gemspec
 
 gem "rubocop", "~> 1.88"
+gem "rubocop-numbered-params"
 gem "rubocop-rbs_inline"
 
 group :development do

@@ -58,7 +58,7 @@ module RbsActionmailer
     def methods #: String
       klass.action_methods.sort.map do |method_name|
         arg_types = arguments_for(method_name)
-        method_types = arg_types.map { |args| "(#{args}) -> ActionMailer::MessageDelivery" }.join(" | ")
+        method_types = arg_types.map { "(#{_1}) -> ActionMailer::MessageDelivery" }.join(" | ")
         <<~RBS
           def self.#{method_name}: #{method_types}
         RBS
@@ -79,7 +79,7 @@ module RbsActionmailer
       return ["*untyped"] unless member
 
       untyped = RBS::Types::Bases::Any.new(location: nil)
-      member.method_overloads(untyped).map { |overload| overload.method_type.type.param_to_s }
+      member.method_overloads(untyped).map { _1.method_type.type.param_to_s }
     end
 
     def footer #: String

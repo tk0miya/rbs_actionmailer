@@ -51,9 +51,6 @@ RSpec/NestedGroups:
 # RbsInline
 Style/RbsInline/MissingTypeAnnotation:
   EnforcedStyle: doc_style_and_return_annotation
-  Exclude:
-    # Fixtures intentionally include unannotated methods to exercise the generator.
-    - "spec/fixtures/**/*"
 
 Style/RbsInline/RedundantTypeAnnotation:
   EnforcedStyle: doc_style_and_return_annotation

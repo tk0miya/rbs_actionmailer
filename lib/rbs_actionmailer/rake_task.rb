@@ -10,7 +10,7 @@ module RbsActionmailer
 
     # @rbs name: Symbol
     # @rbs &block: ?(self) -> void
-    def initialize(name = :'rbs:actionmailer', &block) #: void
+    def initialize(name = :"rbs:actionmailer", &block) #: void
       super()
 
       @name = name

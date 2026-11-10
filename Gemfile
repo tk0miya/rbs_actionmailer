@@ -5,7 +5,7 @@ source "https://rubygems.org", cooldown: 7
 # Specify your gem's dependencies in rbs_actionmailer.gemspec
 gemspec
 
-gem "rubocop", "~> 1.88"
+gem "rubocop", "~> 1.92"
 gem "rubocop-instance_variable_access"
 gem "rubocop-numbered-params"
 gem "rubocop-rake"
